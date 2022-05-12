@@ -4,13 +4,17 @@
 
     ## Parameters --------------------------------------------------------------
         r_seed      = 1
+        Random.seed!(r_seed)
+
         N_x         = 50
         N_y         = 40
         N_cf        = 10
-        max_mean    = [10,5,20,10,100,1,10,10,10,10]
-        std_dev     = 0.1 .* max_mean
-        alpha       = [0.5,1,2,1,1,0.5,2,1,0.8,1]
-        N_epicentre = [0,0,0,1,2,3,4,3,2,2]
+
+        max_mean    = round.(1 .+ (10-1).*rand(N_cf),digits=1)
+        std_dev     = [0.2,0.2,0.2]
+        alpha       = round.(0.5 .+ (1-0.5).*rand(N_cf),digits=3)
+
+        N_epicentre = [0,1,2,3,0,3,4,5,2,1]
         locked_out  = [1020:1022;1070:1072;1120:1122]
 
     ## Generation --------------------------------------------------------------
@@ -55,17 +59,17 @@
         str[6] = "std_dev,"
         for i in 1:length(alpha)
             if i == length(alpha)
-                global str[6] = string(str[6],@sprintf("%.1f",std_dev[i]))
+                global str[6] = string(str[6],@sprintf("%.2f",std_dev[i]))
             else
-                global str[6] = string(str[6],@sprintf("%.1f,",std_dev[i]))
+                global str[6] = string(str[6],@sprintf("%.2f,",std_dev[i]))
             end
         end
         str[7] = "alpha,"
         for i in 1:length(alpha)
             if i == length(alpha)
-                global str[7] = string(str[7],@sprintf("%.1f",alpha[i]))
+                global str[7] = string(str[7],@sprintf("%.2f",alpha[i]))
             else
-                global str[7] = string(str[7],@sprintf("%.1f,",alpha[i]))
+                global str[7] = string(str[7],@sprintf("%.2f,",alpha[i]))
             end
         end
         str[8] = "N_epicentre,"

@@ -45,7 +45,7 @@
 
     ## Conservation Features ---------------------------------------------------
         for i in 1:N_cf
-            title = @sprintf("CF%d\nmax_mean=%.1f | std=%.1f | N_epicentre=%d | alpha=%.1f",i,max_mean[i],std_dev[i],N_epicentre[i],alpha[i])
+            title = @sprintf("CF%d\nmax_mean=%.1f | std=%.2f | N_epicentre=%d | alpha=%.2f",i,max_mean[i],std_dev[i],N_epicentre[i],alpha[i])
             Plots.plot(xlim=lon_range, ylim=lat_range, title=title, xlabel=xloc_lab,
                        ylabel=yloc_lab, size=(png_res_width,png_res_height),legend=false)
             C  = palette([:white, :yellow, :orange, :red],100)
@@ -94,7 +94,7 @@
 
     ## Mean computed for each conservation features ----------------------------
         for i in ConservationFeatures
-          title = @sprintf("Mean CF%d\nmax_mean=%.1f | std=%.1f | N_epicentre=%d | alpha=%.1f",i,max_mean[i],std_dev[i],N_epicentre[i],alpha[i])
+          title = @sprintf("Mean CF%d\nmax_mean=%.1f | std=%.2f | N_epicentre=%d | alpha=%.2f",i,max_mean[i],std_dev[i],N_epicentre[i],alpha[i])
           Plots.plot(xlim=lon_range, ylim=lat_range, title=title, xlabel=xloc_lab,
                      ylabel=yloc_lab, size=(png_res_width,png_res_height),legend=false)
           C  = palette([:white, :yellow, :orange, :red],100)

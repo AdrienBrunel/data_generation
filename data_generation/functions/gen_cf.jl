@@ -40,7 +40,7 @@
                 d = minimum(dist_matrix[pu_tmp,j])
                 mean[i,j] = round(max_mean[i]*(d^alpha[i]-M^alpha[i])/(m^alpha[i]-M^alpha[i]), digits=2)
             end
-            amount[i,:] = max.(0,round.(mean[i,:] .+ std_dev[i] .* randn(N_pu), digits=2))
+            amount[i,:] = max.(0,round.(mean[i,:] .+ std_dev[i] .* mean[i,:] .* randn(N_pu), digits=2))
         end
 
         id = zeros(N_pu,1)

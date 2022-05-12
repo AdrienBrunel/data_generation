@@ -12,7 +12,9 @@
         cost = zeros(N_pu,1)
         for j in PlanningUnits
             id[j] = j
-            cost[j] = rand(0:10)
+            #cost[j] = 1
+            cost[j] = rand(1:10)
+
 
             is_locked_out[j] = 0
             if length(findall(locked_out .== j))>0
@@ -25,6 +27,7 @@
                 end
             end
         end
+        cost = round.(1 .+ (10-1).*rand(N_pu),digits=1)
 
     ## Generation ----------------------------------------------------------------
         pu_wepi_fname = string(sc_dir,"/pu_wepi.csv")
