@@ -4,7 +4,7 @@ clearconsole(); root_dir=pwd();
 # ==============================================================================
     folder = "sc_50x40pu_10cf"
     gen    = true
-    visu   = false
+    visu   = true
 
     println("manage_path.jl    ...");include("$(root_dir)/functions/manage_path.jl");
     println("manage_package.jl ...");include("$(func_dir)/manage_package.jl");
@@ -30,7 +30,7 @@ end
 if visu == true
     t1 = time_ns()
     println("load_param.jl  ...");include("$(func_dir)/load_param.jl");
-    println("load_output.jl  ...");include("$(func_dir)/load_input.jl");
+    println("load_output.jl  ...");include("$(func_dir)/load_output.jl");
     println("visu_opt.jl    ...");include("$(func_dir)/visu_opt.jl");
     println("visu_output.jl ...");include("$(func_dir)/visu_output.jl");
     t2 = time_ns()
