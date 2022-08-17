@@ -24,8 +24,8 @@
 
     ## Generation --------------------------------------------------------------
         bound_fname = string(sc_dir,"/bound.csv")
-        bound_data  = DataFrame([id1 id2 boundary])
+        bound_data  = DataFrame([id1 id2 boundary],:auto)
         rename!(bound_data,["id1","id2","boundary"])
         bound_data.id1 = convert(Array{Int64,1},bound_data.id1)
         bound_data.id2 = convert(Array{Int64,1},bound_data.id2)
-        CSV.write(bound_fname, bound_data, writeheader=true)
+        CSV.write(bound_fname, bound_data, header=true)

@@ -11,7 +11,7 @@
         N_cf        = 10
 
         max_mean    = round.(1 .+ (10-1).*rand(N_cf),digits=1)
-        std_dev     = [0.2,0.2,0.2]
+        std_dev     = [0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]
         alpha       = round.(0.5 .+ (1-0.5).*rand(N_cf),digits=3)
 
         N_epicentre = [0,1,2,3,0,3,4,5,2,1]
@@ -38,7 +38,7 @@
                 param_data[2:max_length,cpt] .= ""
             end
         end
-        param_data = convert(DataFrame,param_data)
+        param_data = DataFrame(param_data,:auto)
         rename!(param_data,["r_seed","N_x","N_y","N_cf","max_mean","std_dev","alpha","N_epicentre","locked_out"])
 
         param_fname = string(sc_dir,"/param.csv")
@@ -57,8 +57,8 @@
             end
         end
         str[6] = "std_dev,"
-        for i in 1:length(alpha)
-            if i == length(alpha)
+        for i in 1:length(std_dev)
+            if i == length(std_dev)
                 global str[6] = string(str[6],@sprintf("%.2f",std_dev[i]))
             else
                 global str[6] = string(str[6],@sprintf("%.2f,",std_dev[i]))

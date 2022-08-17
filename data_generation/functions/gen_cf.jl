@@ -55,11 +55,11 @@
             global df_field_str = @sprintf("%s mean[%d,:]",df_field_str,i)
             global df_name_str = @sprintf("%s,\"m_cf%d\"",df_name_str,i)
         end
-        eval(Meta.parse("cf_mean_data  = DataFrame([$(df_field_str)])"))
+        eval(Meta.parse("cf_mean_data  = DataFrame([$(df_field_str)],:auto)"))
         eval(Meta.parse("rename!(cf_mean_data,[$(df_name_str)])"))
         cf_mean_fname = string(sc_dir,"/cf_mean.csv")
         cf_mean_data.id = convert(Array{Int64,1},cf_mean_data.id)
-        CSV.write(cf_mean_fname, cf_mean_data, writeheader=true)
+        CSV.write(cf_mean_fname, cf_mean_data, header=true)
 
 
         df_field_str = "id"
@@ -68,8 +68,8 @@
             global df_field_str = @sprintf("%s amount[%d,:]",df_field_str,i)
             global df_name_str = @sprintf("%s,\"cf%d\"",df_name_str,i)
         end
-        eval(Meta.parse("cf_data  = DataFrame([$(df_field_str)])"))
+        eval(Meta.parse("cf_data  = DataFrame([$(df_field_str)],:auto)"))
         eval(Meta.parse("rename!(cf_data,[$(df_name_str)])"))
         cf_fname = string(sc_dir,"/cf.csv")
         cf_data.id = convert(Array{Int64,1},cf_data.id)
-        CSV.write(cf_fname, cf_data, writeheader=true)
+        CSV.write(cf_fname, cf_data, header=true)

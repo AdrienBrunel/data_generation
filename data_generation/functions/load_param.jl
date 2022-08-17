@@ -42,7 +42,7 @@
             end
         end
         close(fid)
-        param_data_string = DataFrame([r_seed N_x N_y N_cf max_mean std_dev alpha N_epicentre locked_out])
+        param_data_string = DataFrame([r_seed N_x N_y N_cf max_mean std_dev alpha N_epicentre locked_out],:auto)
         rename!(param_data_string,["r_seed","N_x","N_y","N_cf","max_mean","std_dev","alpha","N_epicentre","locked_out"])
 
         # Reading/Parsing

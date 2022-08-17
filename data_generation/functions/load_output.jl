@@ -15,7 +15,7 @@
         end
 
     ## DataFrame ---------------------------------------------------------------
-        pu_data      = CSV.read(pu_fname, header=1, delim=",")
-        cf_data      = CSV.read(cf_fname, header=1, delim=",")
-        cf_mean_data = CSV.read(cf_mean_fname, header=1, delim=",")
-        coords_data  = CSV.read(coords_fname, header=1, delim=",")
+        pu_data      = CSV.read(pu_fname, DataFrame, header=1, delim=",")
+        cf_data      = CSV.read(cf_fname, DataFrame, header=1, delim=",")
+        cf_mean_data = CSV.read(cf_mean_fname, DataFrame, header=1, delim=",")
+        coords_data  = CSV.read(coords_fname, DataFrame, header=1, delim=",")
