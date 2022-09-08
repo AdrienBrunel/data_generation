@@ -1,0 +1,9 @@
+r_seed,17
+N_x,20
+N_y,15
+N_cf,3
+max_mean,1.7,5.7,4.2
+std_dev,0.20,0.20,0.20
+alpha,0.77,0.97,0.50
+N_epicentre,0,2,2
+locked_out,130,131,150,151
